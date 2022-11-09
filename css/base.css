@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300&display=swap');
+
+header {
+    margin-top: 20px;
+    margin: 0 auto; 
+}
+
+h1 { 
+    font-size: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1rem;
+}
+
+img {
+    max-width: 140px;
+    width: 50%;
+    padding: 5px;
+}
+
+body {
+    font-family: 'Saira Condensed', sans-serif;;
+}
+
+.container, .container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: #fff;
+    background: #333;
+    margin: 10px auto;
+    padding: 10px;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, .6);
+}
+
+a {
+    margin: 5px;
+}
+main {
+    text-align: left;
+    margin: auto;
+    padding: 10px;
+    max-width: 500px;
+}
+
+footer p {
+    margin: 0 auto;
+    width: 100%;
+}
+
+p {
+    text-align: center;
+}
+
+span {
+    margin: auto;
+}
