@@ -1,2 +1,2 @@
-# wdd330
+# Weekly Assignments
 WDD330 course at BYU-Idaho
