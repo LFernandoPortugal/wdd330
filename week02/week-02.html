@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 02 | Notes</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Week 02</h1>
+        </div>
+        <div class="header_2 flex">
+            <div>
+                <h3>Sources:</h3>
+                <p>Javascript: Novice to Ninja 2nd Edition</p>
+                <p>MDN The Content Template Element</p>
+            </div>
+            <div>
+                Nov. 09, 2022
+            </div>
+        </div>
+    </header>
+    <main class="flex">
+        <div class="main_left">
+            <section>
+                <h2>Subject Menu</h2>
+                <ul class="list">
+                    <li><a href="#">Week 01</a></li>
+                    <li><a href="../week02/week-02.html">Week 02</a></li>
+                    <li><a href="#">Week 03</a></li>
+                    <li><a href="#">Week 04</a></li>
+                    <li><a href="#">Week 05</a></li>
+                    <li><a href="#">Week 06</a></li>
+                    <li><a href="#">Week 07</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Questions</h2>
+            </section>
+        </div>
+        <div class="main_right">
+            <section>
+                <h2>Notes</h2>
+                <h3>The Window Object</h3>
+                <ul class="notes">
+                    <li>Every JavaScript environment has a global object. Any variables that are created in the global scope are actually properties of this object, and any functions are methods of it. In browser environment, the global object is the <span class="code">window</span>  object, which represents the browser window that contains a web page.</li>
+                    <li>The Browser Object Model (or BOM for short) is a collection of properties and methods that contain information about the browser and computer screen.</li>
+                    <li>BOM only makes sense in a browser environment.</li>
+                    <li>This means that other environments (such as Node.js) probably won't have a <span class="code">window</span> object, although they will still have a global object; for example, Node.js has an object called <span class="code">global</span>.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span id="currentyear"></span> .:|:. L. Fernando Portugal .:|:. Cusco, Peru
+            </p>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
