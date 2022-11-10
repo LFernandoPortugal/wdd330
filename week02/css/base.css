@@ -11,11 +11,10 @@ h1 {
 
 h2 {
     margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 img {
-    max-width: 140px;
-    width: 50%;
     padding: 5px;
 }
 
