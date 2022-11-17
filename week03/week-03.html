@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 02 | Notes</title>
+    <title>Week 03 | Notes</title>
     <link rel="stylesheet" href="css/base.css">
 </head>
 
@@ -18,10 +18,9 @@
             <div>
                 <h3>Sources:</h3>
                 <p>Javascript: Novice to Ninja 2nd Edition</p>
-                <p>MDN The Content Template Element</p>
             </div>
             <div>
-                Nov. 12, 2022
+                Nov. 16, 2022
             </div>
         </div>
     </header>
@@ -47,56 +46,58 @@
         <div class="main_right">
             <section>
                 <h2>Notes</h2>
-                <h3>The Window Object</h3>
+                <h3>Ajax</h3>
                 <ul class="notes list">
-                    <li>Every JavaScript environment has a global object. Any variables that are created in the global scope are actually properties of this object, and any functions are methods of it. In browser environment, the global object is the <span class="code">window</span>  object, which represents the browser window that contains a web page.</li>
-                    <li>The Browser Object Model (or BOM for short) is a collection of properties and methods that contain information about the browser and computer screen.</li>
-                    <li>BOM only makes sense in a browser environment.</li>
-                    <li>This means that other environments (such as Node.js) probably won't have a <span class="code">window</span> object, although they will still have a global object; for example, Node.js has an object called <span class="code">global</span>.</li>
-                    <li>The <span class="code">window.location</span> property is an object that contains information about the URL of the current page. For example: <span class="code">href, protocol, host, hostname, port, pathname and more.</span></li>
-                    <li>A new window can be opened using the <span>window.open()</span> method. This can also be assigned to a variable, so the window can then be referenced later in the code: 
-                    <p class="code">const popup = window.open('https://sitepoint.com','SitePoint','width=400,height=400,resizable=yes');</p>
-                    <p>Don't forget: <span class="code">close() | moveTo() | resizeTo()</span></p></li>
-                    <li>The <span class="code">window.screen</span> object contains information about the screen the browser is displayed on.
-                    <p>Properties: <span class="code">height, width, availHeight, availWidth, colorDepth</span></p></li>
-                    <li>Each <span class="code">window </span>window object contains a <span class="code">document</span> object. This object has properties and methods that deal with the page that has been loaded into the window.</li>
-                    <li>Cookies are small files that are saved locally on a user's computer. Cookies can be used to store information that can then be retrieved between requests. Cookies are also limited to storing up to 4KB of data, although 20 cookies are allowed per domain, which can add up to quite a lot of data.</li>
-                    <li>Cookies take the form of a text file that contain a list of name/value pairs separated by semicolons. For example, a cookie file might contain the following information:
-                        <p class="code">"name=Superman; hero=true; city=Metropolis"</p>
+                    <li>It's a technique that allows web pages to communicate asynchronously with a server, and it
+                        dynamically updates web pages without reloading. This enables data to be sent and received in
+                        the background, as well as portions of a page to be updated in response to user events, while
+                        the rest of the program continues to run.</li>
+                    <li>A client, such as a web browser, will request a resource (usually a web page) from a server,
+                        which processes the request and sends back a response to the client. Ajax allows JavaScript to
+                        request resources from a server on behalf of the client. </li>
+                    <li>A server is required when requesting resources using Ajax. Typically this involves using a
+                        server-side language, such as PHP, Ruby, Node.js, or .NET to serve the data response following
+                        an Ajax request (usually from a back-end database).</li>
+                    <li>Ajax was a neat acronym that referred to the different parts of the process being used:
+                        Asynchronous JavaScript and XML.</li>
+                    <li>APIs: An application programming interface (API) is a collection of methods that allows external
+                        access to another program or service. This means that developers are able to interact with the
+                        data and create mashups of third-party services.</li>
+                    <li>Fetch API: The Fetch API provides a global <span class="code">fetch()</span> method that only
+                        has one mandatory argument, which is the URL of the resource you wish to fetch. For example:
+                        <br>
+                        <span class="code">
+                            fetch('https://example.com/data') <br>
+                            .then( // code that handles the response ) <br>
+                            .catch( // code that runs if the server returns an error )</span> <br>
+                        In the example above, the promise will be resolved when a response is received from the URL
+                        'https:example.com/data'. Because it's a promise, we can also use a <span
+                            class="code">catch</span> statement at the end to deal with any errors that may occur.
                     </li>
-                    <li>Timing Functions:
-                        <p><span class="code">setTimeout()</span> :Accepts a callback to a function as its first parameter and a number of milliseconds as its second parameter. Try entering the following example into a console. It should show an alert dialog after three seconds (that's 3000 milliseconds):</p>
-                        <p class="code">window.setTimeout( () => alert("Time's Up!"), 3000);<< 4</p>
-                        <p><span class="code">setInterval()</span> :Works in a similar way to <span>window.setTimeout()</span>, except that it will repeatedly invoke the callback function after every given number of milliseconds. <br>
-                        The previous example used an anonymous function, but it is also possible to use a named function like so:</p>
-                        <p class="code">function chant(){ console.log('Beetlejuice'); }</p>
+                    <li>The <span class="code">redirect()</span> method can be used to redirect to another URL. It
+                        creates a new promise that resolves to the response from the redirected URL. <br>
+                        Here is an example of how a redirect response promise would be resolved:
+                        <span class="code">
+                            fetch(url) <br>
+                            .then( response => response.redirect(newURL)); // redirects to
+                            another URL <br>
+                            .then( // do something else ) <br>
+                            .catch( error => console.log('There was an error: ',
+                            error))</span> <br>
+                            At the present time, there is no support for the redirect() method in any browser.
                     </li>
-                    <li>The <span class="code">setTimeOut()</span> and <span class="code">setInterval()</span> methods can be used to animate elements on a web page. </li>
+                    <li>The <span class="code">text()</span> method takes a stream of text from the response, reads it to completion and then returns a promise that resolves to a USVSting object that can be treated as a string in JavaScript.</li>
+                    <li>The <span class="code">blob()</span> method is used to read a file of raw data, such as an image or a spreadsheet.</li>
+                    <li>The <span class="code">json()</span> method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.</li>
+                    <li>The Fetch API introduced a <span class="code">Headers</span>interface, which can be used to create a Headers object, which can then be added as a property of Request and Response objects.</li>
+                    <li>We can also use Ajax to send information. This can be a variety of formats, but is usually a JSON string.</li>
+                    <li>The Fetch API includes the <span class="code">FormData</span> interface, which makes it much easier to submit information in forms using Ajax. <br>
+                    A <span class="code">FormData</span> instance is created using a constructor function: <br> <span class="code">const data = new FormData();</span></li>
+                    <li>The jQuery library is a good option - it has the generic <span class="code">ajax()</span> method that can be used in a very similar way to the <span class="code">fetch()</span> method.</li>
                 </ul>
                 <h3>MDN The Content Template Element</h3>
                 <ul>
-                    <li>The <span class="code">&lt;template&gt;</span> HTML element is a mechanism for holding HTML that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
-                    <p>The only standard attributes that the template element supports are the global attributes.</p>
-                    <p>A <span class="code">DocumentFragment</span> is not a valid target for various events, as such it is often preferable to clone or refer to the elements within it. Example:</p>
-                    <p>HTML <br><span class="code">&lt;div id="container"&gt;&lt;/div&gt;&lt;template id="template"&gt;&lt;div&gt;Click me&lt;/div&gt;&lt;/template&gt;</span></p>
-                    <p>JavaScript <br><span class="code">
-                        const container = document.getElementById("container");<br>
-                        const template = document.getElementById("template");<br>
-                        <br>
-                        function clickHandler(event) {<br>
-                          event.target.append(" — Clicked this div");<br>
-                        } <br>
-                        <br>
-                        const firstClone = template.content.cloneNode(true);<br>
-                        firstClone.addEventListener("click", clickHandler);<br>
-                        container.appendChild(firstClone);<br>
-                        <br>
-                        const secondClone = template.content.firstElementChild.cloneNode(true);<br>
-                        secondClone.addEventListener("click", clickHandler);<br>
-                        container.appendChild(secondClone);</span></p>
-                        
-                        <p>Result <br><span class="code">firstClone</span> is a DocumentFragment instance, so while it gets appended inside the container as expected, clicking on it does not trigger the click event. <span class="code">secondClone</span> is an HTMLDivElement instance, clicking on it works as one would expect.</p>
-                        <img src="images/example01.png" alt="example 01"></li>
+
                 </ul>
             </section>
         </div>
