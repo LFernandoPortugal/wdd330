@@ -18,86 +18,180 @@
             <div>
                 <h3>Sources:</h3>
                 <p>Javascript: Novice to Ninja 2nd Edition</p>
+                <p>Using FormData Objects Effectively<a class="link" href="https://www.youtube.com/watch?v=GWJhE7Licjs">(video link) </a></p>
             </div>
             <div>
                 Nov. 16, 2022
             </div>
         </div>
     </header>
-    <main class="flex">
-        <div class="main_left">
-            <section>
-                <h2>Subject Menu</h2>
-                <ul class="list">
-                    <li><a href="#">Week 01</a></li>
-                    <li><a href="../week02/week-02.html">Week 02</a></li>
-                    <li><a href="../week03/week-03.html">Week 03</a></li>
-                    <li><a href="#">Week 04</a></li>
-                    <li><a href="#">Week 05</a></li>
-                    <li><a href="#">Week 06</a></li>
-                    <li><a href="#">Week 07</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Questions</h2>
-                <p>No questions.</p>
-            </section>
-        </div>
-        <div class="main_right">
-            <section>
-                <h2>Notes</h2>
-                <h3>Ajax</h3>
-                <ul class="notes list">
-                    <li>It's a technique that allows web pages to communicate asynchronously with a server, and it
-                        dynamically updates web pages without reloading. This enables data to be sent and received in
-                        the background, as well as portions of a page to be updated in response to user events, while
-                        the rest of the program continues to run.</li>
-                    <li>A client, such as a web browser, will request a resource (usually a web page) from a server,
-                        which processes the request and sends back a response to the client. Ajax allows JavaScript to
-                        request resources from a server on behalf of the client. </li>
-                    <li>A server is required when requesting resources using Ajax. Typically this involves using a
-                        server-side language, such as PHP, Ruby, Node.js, or .NET to serve the data response following
-                        an Ajax request (usually from a back-end database).</li>
-                    <li>Ajax was a neat acronym that referred to the different parts of the process being used:
-                        Asynchronous JavaScript and XML.</li>
-                    <li>APIs: An application programming interface (API) is a collection of methods that allows external
-                        access to another program or service. This means that developers are able to interact with the
-                        data and create mashups of third-party services.</li>
-                    <li>Fetch API: The Fetch API provides a global <span class="code">fetch()</span> method that only
-                        has one mandatory argument, which is the URL of the resource you wish to fetch. For example:
-                        <br>
-                        <span class="code">
-                            fetch('https://example.com/data') <br>
-                            .then( // code that handles the response ) <br>
-                            .catch( // code that runs if the server returns an error )</span> <br>
-                        In the example above, the promise will be resolved when a response is received from the URL
-                        'https:example.com/data'. Because it's a promise, we can also use a <span
-                            class="code">catch</span> statement at the end to deal with any errors that may occur.
-                    </li>
-                    <li>The <span class="code">redirect()</span> method can be used to redirect to another URL. It
-                        creates a new promise that resolves to the response from the redirected URL. <br>
-                        Here is an example of how a redirect response promise would be resolved:
-                        <span class="code">
-                            fetch(url) <br>
-                            .then( response => response.redirect(newURL)); // redirects to
-                            another URL <br>
-                            .then( // do something else ) <br>
-                            .catch( error => console.log('There was an error: ',
-                            error))</span> <br>
+    <main>
+        <div class="main_flex">
+            <div class="main_left">
+                <section>
+                    <h2>Subject Menu</h2>
+                    <ul class="list">
+                        <li><a href="#">Week 01</a></li>
+                        <li><a href="../week02/week-02.html">Week 02</a></li>
+                        <li><a href="../week03/week-03.html">Week 03</a></li>
+                        <li><a href="../week04/week-04.html">Week 04</a></li>
+                        <li><a href="../week05/week-05.html">Week 05</a></li>
+                        <li><a href="../week06/week-06.html">Week 06</a></li>
+                        <li><a href="../week07/week-07.html">Week 07</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Questions</h2>
+                    <p>No questions.</p>
+                </section>
+            </div>
+            <div class="main_right">
+                <section>
+                    <h2>Notes PART I</h2>
+                    <h3>Ajax</h3>
+                    <ul class="notes list">
+                        <li>It's a technique that allows web pages to communicate asynchronously with a server, and it
+                            dynamically updates web pages without reloading. This enables data to be sent and received
+                            in
+                            the background, as well as portions of a page to be updated in response to user events,
+                            while
+                            the rest of the program continues to run.</li>
+                        <li>A client, such as a web browser, will request a resource (usually a web page) from a server,
+                            which processes the request and sends back a response to the client. Ajax allows JavaScript
+                            to
+                            request resources from a server on behalf of the client. </li>
+                        <li>A server is required when requesting resources using Ajax. Typically this involves using a
+                            server-side language, such as PHP, Ruby, Node.js, or .NET to serve the data response
+                            following
+                            an Ajax request (usually from a back-end database).</li>
+                        <li>Ajax was a neat acronym that referred to the different parts of the process being used:
+                            Asynchronous JavaScript and XML.</li>
+                        <li>APIs: An application programming interface (API) is a collection of methods that allows
+                            external
+                            access to another program or service. This means that developers are able to interact with
+                            the
+                            data and create mashups of third-party services.</li>
+                        <li>Fetch API: The Fetch API provides a global <span class="code">fetch()</span> method that
+                            only
+                            has one mandatory argument, which is the URL of the resource you wish to fetch. For example:
+                            <br>
+                            <span class="code">
+                                fetch('https://example.com/data') <br>
+                                .then( // code that handles the response ) <br>
+                                .catch( // code that runs if the server returns an error )</span> <br>
+                            In the example above, the promise will be resolved when a response is received from the URL
+                            'https:example.com/data'. Because it's a promise, we can also use a <span
+                                class="code">catch</span> statement at the end to deal with any errors that may occur.
+                        </li>
+                        <li>The <span class="code">redirect()</span> method can be used to redirect to another URL. It
+                            creates a new promise that resolves to the response from the redirected URL. <br>
+                            Here is an example of how a redirect response promise would be resolved:
+                            <span class="code">
+                                fetch(url) <br>
+                                .then( response => response.redirect(newURL)); // redirects to
+                                another URL <br>
+                                .then( // do something else ) <br>
+                                .catch( error => console.log('There was an error: ',
+                                error))</span> <br>
                             At the present time, there is no support for the redirect() method in any browser.
-                    </li>
-                    <li>The <span class="code">text()</span> method takes a stream of text from the response, reads it to completion and then returns a promise that resolves to a USVSting object that can be treated as a string in JavaScript.</li>
-                    <li>The <span class="code">blob()</span> method is used to read a file of raw data, such as an image or a spreadsheet.</li>
-                    <li>The <span class="code">json()</span> method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.</li>
-                    <li>The Fetch API introduced a <span class="code">Headers</span>interface, which can be used to create a Headers object, which can then be added as a property of Request and Response objects.</li>
-                    <li>We can also use Ajax to send information. This can be a variety of formats, but is usually a JSON string.</li>
-                    <li>The Fetch API includes the <span class="code">FormData</span> interface, which makes it much easier to submit information in forms using Ajax. <br>
-                    A <span class="code">FormData</span> instance is created using a constructor function: <br> <span class="code">const data = new FormData();</span></li>
-                    <li>The jQuery library is a good option - it has the generic <span class="code">ajax()</span> method that can be used in a very similar way to the <span class="code">fetch()</span> method.</li>
-                </ul>
-                
-            </section>
+                        </li>
+                        <li>The <span class="code">text()</span> method takes a stream of text from the response, reads
+                            it to completion and then returns a promise that resolves to a USVSting object that can be
+                            treated as a string in JavaScript.</li>
+                        <li>The <span class="code">blob()</span> method is used to read a file of raw data, such as an
+                            image or a spreadsheet.</li>
+                        <li>The <span class="code">json()</span> method is used to deal with these by transforming a
+                            stream of JSON data into a promise that resolves to a JavaScript object.</li>
+                        <li>The Fetch API introduced a <span class="code">Headers</span>interface, which can be used to
+                            create a Headers object, which can then be added as a property of Request and Response
+                            objects.</li>
+                        <li>We can also use Ajax to send information. This can be a variety of formats, but is usually a
+                            JSON string.</li>
+                        <li>The Fetch API includes the <span class="code">FormData</span> interface, which makes it much
+                            easier to submit information in forms using Ajax. <br>
+                            A <span class="code">FormData</span> instance is created using a constructor function: <br>
+                            <span class="code">const data = new FormData();</span>
+                        </li>
+                        <li>The jQuery library is a good option - it has the generic <span class="code">ajax()</span>
+                            method that can be used in a very similar way to the <span class="code">fetch()</span>
+                            method.</li>
+                    </ul>
+                    <h2>Notes PART II</h2>
+                    <h3>Forms</h3>
+                    <ul class="notes list">
+                        <li>Forms are the primary method used for entering data into a browser. A form is the main
+                            component of Google's home page, and most of us use forms every day to log in to our
+                            favorite sites.</li>
+                        <li>Forms have a variety of controls that are used for entering different types of information.
+                        </li>
+                        <li><span class="code">document.forms</span> is a property that returns an HTML collection of
+                            all the forms in the document, even though there is only one form in our website. We have to
+                            use index notation to return the first (or only) form object, like so: <br>
+                            <span class="code">
+                                const form = document.forms[0];
+                            </span>
+                        </li>
+                        <li><span class="code">form.elements</span> will return an HTML collection of all the elements
+                            contained within a form.</li>
+                        <li>Form objects have a number of useful properties and methods that can be used to interact
+                            with the form.</li>
+                        <li>The <span class="code">form.submit()</span> method won't trigger the form <span
+                                class="code">submit</span> event.</li>
+                        <li>The <span class="code">form.reset()</span> method will reset all the form controls back to
+                            their initial values specified in the HTML. We can do the same with a button with a <span
+                                class="code">type</span> attribute of <span class="code">reset</span>: <br><span
+                                class="code">&lt;button type='reset'&gt;Reset&lt;/button&gt;</span></li>
+                        <li>Form Controls: <br>
+                            - &lt;input&gt; fields, including text, passwords, check boxes, radio buttons, and file
+                            uploads <br>
+                            - &lt;select&gt; menus for drop-down lists of options <br>
+                            - &lt;textarea&gt; elements for longer text entry <br>
+                            - &lt;button&gt; elements for submitting and resetting forms</li>
+                        <li>Some input fields: <br>
+                            Text, Password, Checkbox, Radio Button, Hidden, File and more. Example: <br>
+                            <img src="images/example01.png" alt="">
+                        </li>
+                        <li>The HTML5 form validation API can be used to automatically validate a form, but only at a
+                            basic level, so a custom validation script may be required.</li>
+                    </ul>
+                    <h3>Using FormData Objects Effectively</h3>
+                    <ul class="notes list">
+                        <li>It's how we can use FormData to quickly and easily grab everything from a form.</li>
+                        <li>To work inside of the FormData object we have to have a name attribute.</li>
+                        <li>We start with a submit listener on to our form.</li>
+                        <li>Always put a prevent deafault method, so we can do things with what the user typed and stop reloading the page.</li>
+                        <li>We create a <span class="code">FormData</span> object like this: <br>
+                        <span class="code">let fd = new FormData(myForm)</span></li>
+                        <li>We can add more things that are not in the form.</li>
+                        <li>We can convert all the data from the form to a Json Object.</li>
+                        <li>Code sample on GitHub to practice using FormData: <br>
+                        <a href="https://gist.github.com/prof3ssorSt3v3/7be8dd12f4d022932a3f700e0cef1841">Click Here.</a></li>
+                    </ul>
+                    <h3>MDN: Client-Side Form Validation</h3>
+                    <ul class="notes list">
+                        <li>Before submitting data to the server, it is important to ensure all required form controls are filled out, in the correct format. This is called client-side form validation, and helps ensure data submitted matches the requirements set forth in the various form controls. </li>
+                        <li>Form Validation can be seen when we don't enter our data in the format it is expected in a form. If we do that we'll get messages such as: <br>
+                            - "This field is required" (You can't leave this field blank). <br>
+                            - "Please enter your phone number in the format xxx-xxxx" (A specific data format is required for it to be considered valid). <br>
+                            - "Please enter a valid email address" (the data you entered is not in the right format). <br>
+                            - "Your password needs to be between 8 and 30 characters long and contain one uppercase letter, one symbol, and a number." (A very specific data format is required for your data).</li>
+                        <li>Built-in form validation is done by using validation attributes on form elements: <span class="code">required, minlength, maxlength, mix, max, type, pattern.</span></li>
+                        <li>We must use JavaScript if you want to take control over the look and feel of native error messages. In this section we will look at the different ways to do this.</li>
+                        <li>Most browsers support the Constraint Validation API, which consists of a set of methods and properties available on the following form element DOM interfaces: <br> <span class="code">
+                            HTMLButtonElement (represents a &lt;button&gt; element) <br>
+                            HTMLFieldSetElement (represents a &lt;fieldset&gt; element) <br>
+                            HTMLInputElement (represents an &lt;input&gt; element) <br>
+                            HTMLOutputElement (represents an &lt;output&gt; element) <br> 
+                            HTMLSelectElement (represents a &lt;select&gt; element) <br>
+                            HTMLTextAreaElement (represents a &lt;textarea&gt; element)
+                        </span></li>
+                        <li>Customizing these error messages is one of the most common use cases of the constraint validation API.</li>
+                        <li>In some cases, such as custom controls, we won't be able to or won't want to use the Constraint Validation API. We're still able to use JavaScript to validate our form, but we'll just have to write our own. The CSS doesn't need to change very much.</li>
+                    </ul>
+                </section>
+            </div>
         </div>
+
     </main>
     <footer>
         <div class="container">
