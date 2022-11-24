@@ -133,7 +133,69 @@
                     </ul>
                     <h3>Transforms and Transitions</h3>
                     <ul class="notes list">
-                        <li></li>
+                        <li>The CSS3 <span class="code">transform</span> property lets you lets you translate, rotate, scale, and/or skew any element on the page.</li>
+                        <li>We can apply translation, scaling, rotation and skew styles to almost every different element in our website. We can also choose the origin of the transform effect.</li>
+                        <li>Animation has certainly been possible for some time with JavaScript, but native CSS transitions generally require less client-side processing, so they'll usually appear smoother. This is better for mobile users.</li>
+                        <li>Transitions allow the values of CSS properties to change over time, essentially providing simple animations. We can animate any of the transforms we've used, so that our pages feel more dynamic.</li>
+                        <li>Steps to create a simple transition using only CSS: <br>
+                            Declare the original state of the element in the default style declaration. <br>
+                            Declare the final state of your transitioned element; for example, a <span class="code">:hover</span> state. <br>
+                            Include the transition functions in your default style declaration using the transition properties, including: <span class="code">transition-property, transition-duration, transition-timing-function, and transition-delay</span>. </li>
+                        <li>The transition <span class="code">property</span> is shorthand for the four transition properties. Example: <br>
+                        <code>
+                            .ad-ad2 h1 span { <br>
+                               <span class="one_tab">transition-property: transform; </span> <br>
+                                <span class="one_tab">transition-duration: 0.2s;  </span> <br>
+                                <span class="one_tab">transition-timing-function: ease-out;</span> <br>
+                                <span class="one_tab">transition-delay: 50ms;</span> <br>
+                            } <br>
+                        </code>
+                        Let's combine all those values into a shorthand declaration: <br>
+                        <code>
+                            .ad-ad2 h1 span { <br>
+                                <span class="one_tab">transition: transform 0.2s ease-out 50ms;</span> <br>
+                            }
+                        </code>
+                        </li>
+                        <li>CSS animations, unlike transitions, allow you to control each step of an animation via keyframes.</li>
+                        <li>For an animation called <span class="code">myAnimation</span>, the <span class="code">@keyframes</span> rule would look like this: <br>
+                        <code>
+                            @-webkit-keyframes myAnimation { <br>
+                            <span class="one_tab">/* put animation keyframes here */</span> <br>
+                            } <br>
+                            @keyframes myAnimation { <br>
+                            <span class="one_tab">/* put animation keyframes here */</span> <br>
+                            } <br>
+                        </code>
+                        </li>
+                        <li>Animation properties: <br>
+                            <span class="code">
+                                animation-name <br>
+                                animation-duration <br>
+                                animation-timing-function <br>
+                                animation-iteration-count <br>
+                                animation-direction <br>
+                                animation-delay
+                            </span></li>
+                        <li>Example for shorthand animation property: <br>
+                        <code>
+                            .verbose { <br>
+                                <span class="one_tab">animation-name: appearDisappear; </span> <br>
+                                <span class="one_tab">animation-duration: 300ms; </span> <br>
+                                <span class="one_tab">animation-timing-function: ease-in;</span> <br>
+                                <span class="one_tab">animation-iteration-count: 1;</span> <br>
+                                <span class="one_tab">animation-direction: alternate;</span> <br>
+                                <span class="one_tab">animation-delay: 5s;</span> <br>
+                                <span class="one_tab">animation-fill-mode: backwards;</span> <br>
+                                <span class="one_tab">animation-play-state: running;</span> <br>
+                            } <br>
+                            <br>
+                            /* shorthand */ <br>
+                            .concise { <br>
+                                <span class="one_tab">animation: 300ms ease-in alternate 5s backwards appearDisappear;</span> <br>
+                            } <br>
+                        </code>
+                        </li>
                     </ul>
                     <h2>Notes PART II</h2>
                     <h3>Forms</h3>
