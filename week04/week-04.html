@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 04 | Notes</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Week 04</h1>
+        </div>
+        <div class="header_2 flex">
+            <div>
+                <h3>Sources:</h3>
+                <p>Ch11: Further Functions</p>
+                <p>Ch8: Transforms and Transitions</p>
+            </div>
+            <div>
+                Nov. 23, 2022
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main_flex">
+            <div class="main_left">
+                <section>
+                    <h2>Subject Menu</h2>
+                    <ul class="list">
+                        <li><a href="#">Week 01</a></li>
+                        <li><a href="../week02/week-02.html">Week 02</a></li>
+                        <li><a href="../week03/week-03.html">Week 03</a></li>
+                        <li><a href="../week04/week-04.html">Week 04</a></li>
+                        <li><a href="../week05/week-05.html">Week 05</a></li>
+                        <li><a href="../week06/week-06.html">Week 06</a></li>
+                        <li><a href="../week07/week-07.html">Week 07</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Questions</h2>
+                    <p>No questions.</p>
+                </section>
+            </div>
+            <div class="main_right">
+                <section>
+                    <h2>Notes PART I</h2>
+                    <h3>Further Functions</h3>
+                    <ul class="notes list">
+                        <li>The fact that functions are first-class objects means they can have properties and methods
+                            themselves. For example, all functions have a <span class="code">length</span> property that
+                            returns the number of parameters the function has.</li>
+                        <li>We can create some objects that have a name property, then use the <span
+                                class="code">call()</span> method to invoke the <span class="code">sayHello()</span>
+                            function, providing each object as an argument. This will then take the value of <span
+                                class="code">this</span> in the function: <br>
+                            <span class="code">
+                                function sayHello(){ <br>
+                                <span style="padding-left: 30px;">return `Hello, my name is ${ this.name }`; </span>
+                                <br>
+                                } <br>
+                                const clark = { name: 'Clark' }; <br>
+                                const bruce = { name: 'Bruce' }; <br>
+                                <br>
+                                sayHello.call(clark); <br>
+                                << 'Hello, my name is Clarke' <br>
+                                    sayHello.call(bruce); <br>
+                                    << 'Hello, my name is Bruce' </span>
+                        </li>
+                        <li>If a function doesn't refer to an object as this in its body, it can still be called using
+                            the <span class="code">call()</span> method, but you need provide null as its first
+                            argument.</li>
+                        <li>The <span class="code">apply()</span> method works in the same way, except the arguments of
+                            the function are provided as an array, even if there is only one argument.</li>
+                        <li>We can add a <span class="code">description</span> property to a function that describes
+                            what it does. A useful feature of this is that it provides result caching, or memoization.
+                            If a function takes some time to compute a return value, we can save the result in a <span
+                                class="code">cache</span> property.</li>
+                        <li>An Immediately Invoked Function Expression - or IIFE - (pronounced 'iffy') is an anonymous
+                            function that, as the name suggests, is invoked as soon as it's defined. </li>
+                        <li>Placing any code that uses the temporary variable inside an IIFE will ensure it's only
+                            available while the IIFE is invoked, then it will disappear.</li>
+                        <li>An IIFE can be used to set up any initialization code that there'll be no need for again.
+                            Because the code is only run once, there's no need to create any reusable, named functions,
+                            and all the variables will also be temporary. Example: <br>
+                            <code>
+                                (function() { <br>
+                                    const name = 'Peter Parker'; // This might be obtained from a cookie in reality <br>
+                                    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday']; <br>
+                                    const date = new Date(),today = days[date.getDay()]; <br>
+                                    console.log(`Welcome back ${name}. Today is ${today}`); <br>
+                                })(); <br>
+                                << 'Welcome back Peter Parker. Today is Tuesday'
+                            </code>
+                        </li>
+                        <li>When trying to write a function that define and rewrite itself, we can lose properties.</li>
+                        <li>A recursive function is one that invokes itself until a certain condition is met. It's a
+                            useful tool to use when iterative processes are involved. Example: <br>
+                            <code>
+                            function factorial(n) { <br>
+                               <span class="one_tab">if (n === 0) {</span>  <br>
+                                   <span class="two_tabs">return 1;</span>  <br>
+                                <span class="one_tab">} else {</span> <br>
+                                    <span class="two_tabs">return n * factorial(n - 1);</span> <br>
+                                <span class="one_tab">}</span> <br>
+                            }
+                        </code>
+                        </li>
+                        <li>Callback Hell is when more than one callback is used in the same function, resulting in a
+                            large number of nested blocks that are difficult to comprehend.</li>
+                        <li>A promise is created using a constructor function. This takes a function called an executor as an argument. The executor initializes the promise and starts the asynchronous operation. It also accepts two functions as arguments: the <span class="code">resolve()</span> function is called if the operation is successful, and the <span class="code">reject()</span> function is called if the operation fails: <br>
+                            <code>
+                            const promise = new Promise( (resolve, reject) => { <br>
+                                <span class="one_tab">// initialization code goes here</span> <br>
+                                <span class="one_tab">if (success) {</span> <br>
+                                        <span class="two_tabs">resolve(value);</span> <br>
+                                    <span class="one_tab">} else {</span>  <br>
+                                        <span class="two_tabs">reject(error);</span> <br>
+                                    <span class="one_tab">}</span> <br>
+                            });
+                        </code>
+                        </li>
+                        <li>A closure is a reference to a variable that was created inside the scope of another function, but is then kept alive and used in another part of the program.</li>
+                        <li>Whenever a function is defined inside another function, the inner function will have access to any variables that are declared in the outer function's scope.</li>
+                        <li>Any pure function must have: <br>
+                            _At least one argument; otherwise the return value must depend on something other than the arguments of the function, breaking the first rule <br>
+                            _A return value; otherwise there's no point in the function (unless it has changed something else in the program - in which case, it's broken the 'no side-effects' rule).
+                        </li>
+                        <li>By 'currying' a generic function, we can create a new, more specific function, that is simpler to use.</li>
+                    </ul>
+                    <h3>Transforms and Transitions</h3>
+                    <ul class="notes list">
+                        <li></li>
+                    </ul>
+                    <h2>Notes PART II</h2>
+                    <h3>Forms</h3>
+                    <ul class="notes list">
+                        <li></li>
+                    </ul>
+                    <h3>Using FormData Objects Effectively</h3>
+                    <ul class="notes list">
+                        <li></li>
+                    </ul>
+                    <h3></h3>
+                    <ul class="notes list">
+                        <li></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span id="currentyear"></span> .:|:. L. Fernando Portugal .:|:. Cusco, Peru
+            </p>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
