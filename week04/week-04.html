@@ -19,6 +19,8 @@
                 <h3>Sources:</h3>
                 <p>Ch11: Further Functions</p>
                 <p>Ch8: Transforms and Transitions</p>
+                <p>Get Started with JSON Web Tokens</p>
+                <p>Develop, Debug, Learn? </p>
             </div>
             <div>
                 Nov. 23, 2022
@@ -198,13 +200,27 @@
                         </li>
                     </ul>
                     <h2>Notes PART II</h2>
-                    <h3></h3>
+                    <h3>Getting Started with JSON Web Tokens (JWT)</h3>
                     <ul class="notes list">
-                        <li></li>
+                        <li>JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.</li>
+                        <li>JWTs can be signed using a secret (with HMAC algorithm) or a public/private key pair using RSA.</li>
+                        <li>I should use it when: <br>
+                            _Authentication: This is the typical scenario for using JWT, once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. <br>
+                            _Information Exchange: JWTs are a good way of securely transmitting information between parties, because as they can be signed, for example using a public/private key pair, you can be sure that the sender is who they say they are. </li>
+                        <li>A JWT has a header, a payload and a signature. It typically looks like the following:   xxxxx.yyyyy.zzzzz</li>
+                        <li>Example of a real JMT: <br>
+                        <img src="images/example02.png" alt="JMT example"></li>
+                        <li>Whenever the user wants to access a protected route, it should send the JWT, typically in the Authorization header using the Bearer schema. Therefore the content of the header should look like the following: <br>
+                        <code>Authorization: Bearer &lt;token&gt;</code></li>
                     </ul>
-                    <h3></h3>
+                    <h3>Develop, Debug, Learn? (video)</h3>
                     <ul class="notes list">
-                        <li></li>
+                        <li>Javascritpt allowed us to create interactivity in the browser and become real developers on the front-end side.</li>
+                        <li>We learned what the possibilities in Javascript are.</li>
+                        <li>We work on faith because we hope the framework that we are using has all built-in.</li>
+                        <li>Context switching is mentally exhausting. Rethinking tooling… prevent us from doing things wrong instead of patching up what we created.</li>
+                        <li>DEVELOP, LEARN, DEBUG: A more natural approach</li>
+                        <li>There's no easy answers. EDITOR, BROWSER AND DOCS are our world to build.</li>
                     </ul>
                 </section>
             </div>
