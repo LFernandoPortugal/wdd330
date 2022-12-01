@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 05 | Notes</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>Week 05</h1>
+        </div>
+        <div class="header_2 flex">
+            <div>
+                <h3>Sources:</h3>
+                <p>Ch14: HTML5 APIs</p>
+                <p>Ch12: Canvas, SVG, and Drag and Drop</p>
+            </div>
+            <div>
+                Nov. 30, 2022
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main_flex">
+            <div class="main_left">
+                <section>
+                    <h2>Subject Menu</h2>
+                    <ul class="list">
+                        <li><a href="#">Week 01</a></li>
+                        <li><a href="../week02/week-02.html">Week 02</a></li>
+                        <li><a href="../week03/week-03.html">Week 03</a></li>
+                        <li><a href="../week04/week-04.html">Week 04</a></li>
+                        <li><a href="../week05/week-05.html">Week 05</a></li>
+                        <li><a href="../week06/week-06.html">Week 06</a></li>
+                        <li><a href="../week07/week-07.html">Week 07</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Questions</h2>
+                    <p>No questions.</p>
+                </section>
+            </div>
+            <div class="main_right">
+                <section>
+                    <h2>Notes PART I</h2>
+                    <h3>HTML5 APIs</h3>
+                    <ul class="notes list">
+                        <li>HTML5 is the latest incarnation of the Hypertext Markup Language. It covers a variety of technologies, including several APIs that are accessible using JavaScript.</li>
+                        <li>The <span class="code">data-</span> attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. They're also private to a page, so are not intended to be used by an external service - their sole purpose is to be used by a JavaScript program.</li>
+                        <li>The names of these attributes can be decided by the developer, but they must use the following format: <br>
+                            _Start with data-. <br>
+                            _Contain only lowercase letters, numbers, hyphens, dots, colons or underscores. <br>
+                            _Include an optional string value. <br>
+                        Example: <br>
+                        <code>
+                            data-powers = 'flight superSpeed'<br>
+                            data-rating = '5' <br>
+                            data-dropdown <br>
+                            data-user = 'DAZ' <br>
+                            data-max-length = '32'<br>
+                        </code></li>
+                        <li>The value of <span class="code">data-max-length</span> will return a string, but can easily be converted into a number using the following code: <br>
+                        <code>
+                            const maxLength = Number(element.dataset.maxLength);
+                        </code>
+                        </li>
+                        <li>The Web Storage API has some crucial differences with cookies: <br>
+                            _Information stored is not shared with the server on every request. <br>
+                            _Information is available in multiple windows of the browser (but only if the domain is the same). <br>
+                            _Storage capacity limit is much larger than the 4KB limit for cookies ( There is no actual limit in the specification, but most browsers have a limit set at 5GB per domain.). <br>
+                            _Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a better choice for something like showing a popup once a day.</li>
+                        <li>The Geolocation API allows you to access the geographic coordinates of the user's device, as long as the user gives permission.</li>
+                        <li>By using JSON, we can store any JavaScript object in local storage.</li>
+                        <li>The Geolocation API is used to obtain the geographical position of the device. The <span class="code">position</span> object has several other properties that can be used to find out information about the location and movement of the device: <span class="code">position.speed, position.altitude, position.heading, position.timestamp</span></li>
+                        <li>The Service Worker API allows a worker script to run in the background with the added benefit of being able to intercept network requests. This allows you to take alternative action if the network is offline, and effectively create app-like offline experiences. </li>
+                        <li>Websocket is a new protocol that allows two-way communication with a server - also known as push messaging. This means that a connection is kept open and responses are 'pushed' to the client as soon as they are received.</li>
+                        <li>The Notification API allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen, but it changes depending on the operating system. An advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab.</li>
+                        <li>The <span class="code">&lt;audio&gt;</span> and <span class="code">&lt;video&gt;</span>  tags are used to insert audio and video clips into a web page. It also introduced a Media API for controlling the playback of the clips using JavaScript. The <span class="code">controls</span> attribute can be added (without any value) and will display the browser's native controls, such as play, pause, and volume control, as can be seen in the screenshot below. <br>
+                        <img src="images/example01.png" alt="example 01"></li>
+                        <li>The list of APIs is constantly growing, and includes APIs for accessing a device's camera, uploading files, accessing the battery status, handling push notifications, building drag-and-drop functionality, creating 3D effects with WebGL, and many more!</li>
+                        <li>The <span class="code">canvas</span> element can be used to dynamically draw geometric shapes, text, and images on a web page in real-time using JavaScript.</li>
+                        <li>A shim or polyfill is a piece of code that adds support of missing features to older browsers.</li>
+                    </ul>
+                    <h3>Canvas, SVG, and Drag and Drop</h3>
+                    <ul class="notes list">
+                        <li>With HTML5's Canvas API, we can draw anything we can imagine, all through JavaScript.<span class="code"></span></li>
+                        <li>To create a canvas element we do the following: <br>
+                            <code>
+                            &lt;canvas id="myCanvas" class="myCanvas"&gt; <br>
+                                <span class="one_tab"></span> Sorry! Your browser doesn't support Canvas. <br>
+                            &lt;/canvas&gt; <br>
+                            </code>
+                            The text in between the canvas tags will only be shown if the canvas element is not supported by the visitor's browser. Note that we added an ID to grab the element from the DOM.
+                        <br><hr>
+                            Let's add a width and height attribute to the canvas element: <br>
+                            <code>
+                            &lt;canvas id="myCanvas" class="myCanvas" width="200" height="200"&gt; <br>
+                                <span class="one_tab"></span> Sorry! Your browser doesn't support Canvas. <br>
+                            &lt;/canvas&gt; <br>
+                            </code><hr>
+                            Finally, let's add a border to our canvas using some CSS to visually distinguish it on the page. <br>
+                            <code>
+                                .myCanvas { <br>
+                                    <span class="one_tab"></span> border: dotted 2px black; <br>
+                                } <br>
+                            </code> <hr>
+                            We can view the canvas container on our page: <br>
+                            <img src="images/example02.png" alt="example 02">
+                        </li>
+                        <li>We need to grab hold of the canvas element on our page: <br>
+                        <span class="code">var canvas = document.getElementById("myCanvas");</span> <br>
+                        We obtain our drawing context by calling the getContext method and passing it the string "2d", since we'll be drawing in two dimensions: <br>
+                        <span class="code">
+                            var canvas = document.getElementById("myCanvas"); <br>
+                            var context = canvas.getContext("2d");
+                        </span>
+                        </li>
+                        <li><span class="code">strokeStyle</span> and <span class="code">fillStyle</span> are set on a context object, and both take one of three values: a string representing a color, a <span class="code">CanvasGradient</span> object, or a <span class="code">CanvasPattern</span> object.</li>
+                        <li>To draw a rectangle with a red border and blue fill, we do the following: <br>
+                        <code>
+                            var canvas = document.getElementById("myCanvas"); <br>
+                            var context = canvas.getContext("2d"); <br>
+                            context.strokeStyle = "red"; <br>
+                            context.fillStyle = "blue"; <br>
+                        </code></li>
+                        <li><span class="code">fillRect</span> and <span class="code">strokeRect</span> methods take the X and Y coordinates where you want to begin drawing the fill or the stroke, and the width and height of the rectangle. Example: <br>
+                        <code>
+                            var canvas = document.getElementById("myCanvas"); <br>
+                            var context = canvas.getContext("2d"); <br>
+                            context.strokeStyle = "red"; <br>
+                            context.fillStyle = "rgba(0, 0, 255, 0.5)"; <br>
+                            context.fillRect(10, 10, 100, 100); <br>
+                            context.strokeRect(10, 10, 100, 100); <br>
+                        </code><img src="images/example03.png" alt="example 03"></li>
+                        <li>Paths create a blueprint for your lines, arcs, and shapes, but paths are invisible until we give them a stroke.</li>
+                        <li>An arc is a segment of a circle, but as there's no method for creating a circle, we can draw a 360° arc. Example: <br>
+                        <code>
+                            function drawCircle(canvas) { <br>
+                                <span class="one_tab">var canvas = document.getElementById("myCanvas");</span> <br>
+                                <span class="one_tab">var context = canvas.getContext("2d");</span> <br>
+                                <span class="one_tab">context.beginPath();</span> <br>
+                                <span class="one_tab">context.arc(50, 50, 30, 0, Math.PI*2, true);</span> <br>
+                                <span class="one_tab">context.closePath(); </span> <br>
+                                <span class="one_tab">context.strokeStyle = "red"; </span> <br>
+                                <span class="one_tab">context.fillStyle = "blue"; </span> <br>
+                                <span class="one_tab">context.lineWidth = 3; </span> <br>
+                                <span class="one_tab">context.fill(); </span> <br>
+                                <span class="one_tab">context.stroke(); </span> <br>
+                            } <br>
+                        </code>
+                        <img src="images/example04.png" alt="example 04"> <br>
+                        The signature for the arc method is: arc(x, y, radius, startAngle, endAngle, anticlockwise).</li>
+                        <li><span class="code">getImageData</span> will return an <span class="code">ImageData</span> object, which contains three properties: width, height, and data. With data we can manipulate images by modifying the pixels in the <span class="code">ImageData</span> object, which will be returned in a form of an array. Each pixel on the <span class="code">canvas</span> will have four values in the data array, which correspond to that pixel's R, G, B, and A values.</li>
+                        <li>We can covert the color image to black and white. We can do the same to make our color video black and white.</li>
+                        <li>SVG stands for Scalable Vector Graphics, a specific file format that allows you to describe vector graphics using XML. A major selling point of vector graphics in general is that, unlike bitmap images (such as GIF, JPEG, PNG, and TIFF), vector images preserve their quality even as you blow them up or shrink them down.</li>
+                        <li>Since SVG is an XML file format, it's also more accessible to search engines than canvas.</li>
+                        <li>Drawing a circle in SVG is arguably easier than drawing a circle with canvas. Here's how we do it: <br>
+                            <code>
+                            &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"&gt; <br>
+                                <span class="one_tab"></span> &lt;circle cx="50" cy="50" r="25" fill="red"/&gt; <br>
+                            &lt;/svg&gt;</code><br>
+                        <img src="images/example05.png" alt="example 05"></li>
+                        <li>Raphaël is an open-source JavaScript library that makes drawing and animating with SVG much easier.</li>
+                        <li>The <span class="code">Drag and Drop</span> API allows us to specify that certain elements are draggable, and then specify what should happen when these draggable elements are dragged over or dropped onto other elements on the page.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span id="currentyear"></span> .:|:. L. Fernando Portugal .:|:. Cusco, Peru
+            </p>
+        </div>
+    </footer>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
