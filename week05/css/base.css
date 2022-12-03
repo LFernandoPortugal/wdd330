@@ -136,3 +136,8 @@ span {
 .two_tabs {
     padding-left: 60px;
 }
+/* ______________________________________ */
+.week5_example {
+    display: flex;
+    gap: 20px;
+}

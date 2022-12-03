@@ -19,6 +19,8 @@
                 <h3>Sources:</h3>
                 <p>Ch14: HTML5 APIs</p>
                 <p>Ch12: Canvas, SVG, and Drag and Drop</p>
+                <p>An Introduction to Functions, Execution Context and the Call Stack (22min)<a class="link" href="https://www.youtube.com/watch?v=exrc_rLj5iw">(video link) </a></p>
+                <p>How to Understand Callbacks & Higher Order Functions (40min)<a class="link" href="https://www.youtube.com/watch?v=viQz4nUUnpw">(video link) </a></p>
             </div>
             <div>
                 Nov. 30, 2022
@@ -167,6 +169,68 @@
                         <img src="images/example05.png" alt="example 05"></li>
                         <li>Raphaël is an open-source JavaScript library that makes drawing and animating with SVG much easier.</li>
                         <li>The <span class="code">Drag and Drop</span> API allows us to specify that certain elements are draggable, and then specify what should happen when these draggable elements are dragged over or dropped onto other elements on the page.</li>
+                    </ul>
+                    <h2>Notes PART II</h2>
+                    <h3>Functions, Execution Context and the Call Stack</h3>
+                    <ul class="notes list">
+                        <li>When we run a code: Store stuff in memory, then we are gonna go through our code line by line, take it and run it. Known as a thread of execution (parsing and executing the code line after line)</li>
+                        <li>As soon as we start creating and running our code, we create a Global Execution Context. A global variable environment are variables around me and my code</li>
+                        <li>We go from top to bottom of the page, we never skip a line, the thread is single (one thing at the time) and it has a synchronous execution.</li>
+                        <li>Functions are a way of wrapping up some instructions to be done later on, we give it a label so we can refer to it later and say - go run that function.</li>
+                        <li>When we call a function is going to do a bunch of work inside of it, we need local variables and it's called the Local Execution Context </li>
+                        <li>When calling a function we have an argument that's our actual value that we stick in when we run the function. We use the "return" keyword to back out of the function</li>
+                        <li>Javascript has a track of execution and we have to keep track of where it is and where to go back when it finishes. The Call Stack is a really great way of representing our calls to functions. We can also keep track of the execution context.</li>
+                    </ul>
+                    <h3>How to Understand Callbacks & Higher Order Functions</h3>
+                    <ul class="notes list">
+                        <li>Declaring a function that can be used as many times as possible is the best, this can be done by using parameters.</li>
+                        <li>When we use a function, we say: “Take my code and run it, and anything declared inside it's stored in a memory”. All of this combined is known as an execution context.</li>
+                        <li>We should avoid repeating by using more parameteres and have a more reusable function. Example: <br>
+                        <div class="week5_example">
+                            <div>
+                                <h4>Global Memory:</h4>
+                                <p class="one_tab">copyArrayAndManipulate = function <br>
+                                    multiplyBy2 = function <br>
+                                    result = …………</p>
+                            </div>
+                            <div>
+                                <h4>Local Memory:</h4>
+                                <p class="one_tab">array = [1, 2, 3] <br>
+                                    instructions = function <br>
+                                    output = [ ]</p>
+                            </div>
+                            <div>
+                                <h4>Call Stack:</h4>
+                                <p class="one_tab">instructions() <br>
+                                    copyArrayAndManipulate() <br>
+                                    global()</p>
+                            </div>
+                        </div>
+                        <span class="code">global() <br>
+                        copyArrayAndManipulate([1, 2, 3], multiplyBy2)</span>
+                        <code><br>
+                            function copyArrayAndManipulate(array, instructions) { <br>
+                                <span class="one_tab">let output = [];</span> <br>
+                                <span class="one_tab">for (let i = 0; i &lt;array.length; i++) {</span> <br>
+                                    <span class="two_tabs">output.push(instructions(array[i]));</span> <br>
+                                    <span class="one_tab">}</span> <br>
+                                    <span class="one_tab">return output;</span> <br>
+                            } <br>
+                            <br>
+                            function multiplyBy2(input) { <br>
+                                <span class="one_tab">return input * 2;</span> <br>
+                            } <br>
+                            <br>
+                            let result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
+                        </code><br>
+                        Our final ouput or result would be: <code>[2, 4, 6]</code></li>
+                        <li>Functions in JavaScript = first class objects.</li>
+                        <li>They have all the properties of objects, can co-exist with and can be treated like any other JavaScript object: <br>
+                            1. Asssigned to variables and proeperties of other objects <br>
+                            2. Passed as arguments into functions <br>
+                            3. Returned as values from functions</li>
+                        <li>Functions despite being objects have the ability to be invoked, called or run.</li>
+                        <li>The function we “pass in” is a callback function and the outer function that “takes in” the function (the callback) is a higher-order function. They allow us to run asynchronous functions.</li>
                     </ul>
                 </section>
             </div>
